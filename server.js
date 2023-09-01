@@ -1,6 +1,12 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
+const bodyParser = require('body-parser');
+const express = require('express');
+const mongoose = require('mongoose');
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));

@@ -3,6 +3,7 @@ const router = express.Router();
 const Log = require('../models/log');
 
 
+
 //INDUCES
 // Index Route
 router.get('/', (req, res) => {
@@ -55,7 +56,9 @@ router.put('/:id', (req, res) => {
 
 // Create Route
 router.post('/', (req, res) => {
-    Log.create(req.body)
+    const newLog = new Log(req.body);
+    newLog
+        .save()
         .then((log) => {
         res.redirect(`/logs/${log._id}`);
         })
